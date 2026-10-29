@@ -10,7 +10,7 @@ use AiSdk\Utils\Support\Url;
 
 final class PerplexityOptions
 {
-    public const string DEFAULT_BASE_URL = 'https://api.perplexity.ai/v1';
+    public const string DEFAULT_BASE_URL = 'https://api.perplexity.ai';
     public const string PROVIDER_NAME = 'perplexity';
 
     /**

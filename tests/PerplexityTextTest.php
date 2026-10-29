@@ -109,3 +109,13 @@ it('accepts opaque text model ids without a model inventory', function () {
 
     expect(Perplexity::model('future-private-model')->modelId())->toBe('future-private-model');
 });
+
+it('sends requests to the documented Perplexity endpoint', function () {
+    $client = new FakeHttpClient(200, json_encode(['choices' => [['index' => 0, 'message' => ['content' => 'ok'], 'finish_reason' => 'stop']], 'usage' => []]));
+    configurePerplexityWith($client);
+    Perplexity::create(['apiKey' => 'perplexity-test']);
+
+    Generate::text('Hi')->model(Perplexity::model('sonar'))->run();
+
+    expect((string) $client->lastRequest->getUri())->toBe('https://api.perplexity.ai/chat/completions');
+});
