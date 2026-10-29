@@ -2,7 +2,7 @@
 
 Notable changes to `aisdk/perplexity`. Release notes are also published at https://github.com/phpaisdk/perplexity/releases.
 
-## Unreleased (v0.10.1)
+## v0.10.1 — 2026-10-29
 
 - Fix the default endpoint path; requests previously returned 404.
 
